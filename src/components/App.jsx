@@ -25,19 +25,27 @@ class App extends Component {
   addForm = data => {
     const newContact = {
       id: nanoid(),
-
       ...data,
     };
+
+    const contactData =  this.state.contacts.find((user)=> user.name === data.name );
+
+    if (contactData) {
+      alert(`${data.name} is already in contacts`);
+      return;
+    }
 
     this.setState(prevState => ({
       contacts: [newContact, ...prevState.contacts],
     }));
+
+
+    // {newContact === this.state.contacts.name && alert `${data.name} is already in contacts` }
   };
 
   getFilterContact = () => {
     const normalizeFilter = this.state.filter.toLowerCase();
-    // console.log('normalizeFilter:', normalizeFilter);
-    // console.log('contacts_filtered', this.state.contacts.filter(contact => contact.name.toLowerCase().includes(normalizeFilter)));
+
     return this.state.contacts.filter(contact => contact.name.toLowerCase().includes(normalizeFilter));
   };
   changeFilter = event => {
