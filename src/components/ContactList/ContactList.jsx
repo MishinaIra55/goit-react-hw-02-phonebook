@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-const ContactList = ( { contacts }) => {
+const ContactList = ( { contacts, onDelete }) => {
   console.log(contacts);
   return (
     <ul>
@@ -11,6 +11,7 @@ const ContactList = ( { contacts }) => {
         <p>{name}</p>
         <p>{id}</p>
         <p>{number}</p>
+        <button type='button' onClick={()=>{onDelete(id)}}>Delete</button>
       </li>
       ))}
     </ul>
