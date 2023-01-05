@@ -39,14 +39,14 @@ class App extends Component {
       contacts: [newContact, ...prevState.contacts],
     }));
 
-
-    // {newContact === this.state.contacts.name && alert `${data.name} is already in contacts` }
   };
 
   getFilterContact = () => {
-    const normalizeFilter = this.state.filter.toLowerCase();
+    const { filter, contacts } = this.state;
 
-    return this.state.contacts.filter(contact => contact.name.toLowerCase().includes(normalizeFilter));
+    const normalizeFilter = filter.toLowerCase();
+
+    return contacts.filter(contact => contact.name.toLowerCase().includes(normalizeFilter));
   };
   changeFilter = event => {
     this.setState({ filter: event.currentTarget.value });
@@ -73,5 +73,4 @@ class App extends Component {
   };
 
 }
-
 export default App;
