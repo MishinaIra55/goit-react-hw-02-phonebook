@@ -21,10 +21,11 @@ class ContactForm extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    this.props.addContact(this.state);
+    const checkName = this.props.addContact(this.state);
 
-
-    this.reset();
+    if(checkName) {
+      this.reset();
+    }
   };
 
   reset = () => {
@@ -53,8 +54,7 @@ class ContactForm extends Component {
           />
         </label>
 
-        <label className={styles.label}
-        >
+        <label>
           Number
           <input
 
