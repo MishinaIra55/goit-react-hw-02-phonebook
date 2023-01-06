@@ -32,14 +32,20 @@ class App extends Component {
 
     if (contactData) {
       alert(`${data.name} is already in contacts`);
+      // this.reset();
       return;
     }
+
 
     this.setState(prevState => ({
       contacts: [newContact, ...prevState.contacts],
     }));
 
   };
+
+  // reset = () => {
+  //   return;
+  // };
 
   getFilterContact = () => {
     const { filter, contacts } = this.state;

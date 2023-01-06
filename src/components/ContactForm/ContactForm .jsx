@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import styles from './ContactForm.module.css';
+import PropTypes from 'prop-types';
 
 class ContactForm extends Component {
   state = {
@@ -21,6 +22,7 @@ class ContactForm extends Component {
     event.preventDefault();
 
     this.props.addContact(this.state);
+
 
     this.reset();
   };
@@ -74,3 +76,13 @@ class ContactForm extends Component {
 }
 
 export default ContactForm;
+
+ContactForm.proTypes = {
+  handleInputChange:PropTypes.func.isRequired,
+  handleSubmit:PropTypes.func.isRequired,
+  number:PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+
+}
+
+
