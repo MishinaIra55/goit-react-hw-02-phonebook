@@ -22,6 +22,7 @@ class ContactForm extends Component {
     event.preventDefault();
 
     const checkName = this.props.addContact(this.state);
+    console.log(checkName);
 
     if(checkName) {
       this.reset();
@@ -78,11 +79,7 @@ class ContactForm extends Component {
 export default ContactForm;
 
 ContactForm.proTypes = {
-  handleInputChange:PropTypes.func.isRequired,
-  handleSubmit:PropTypes.func.isRequired,
-  number:PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
-
+  addContact:PropTypes.bool,
 }
 
 
